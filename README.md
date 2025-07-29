@@ -149,13 +149,3 @@ If you liked this project:
 
 ```
 
----
-
-### ✅ Next Steps for You
-
-1. **Add screenshots and GIFs** to show off your UI — use [Gyazo](https://gyazo.com/) or [ScreenToGif](https://www.screentogif.com/).
-2. **Deploy** to Vercel (frontend) and Render or Railway (backend) — then update the links.
-3. **Share your repo** on [Reddit](https://www.reddit.com/r/webdev/), Dev.to, and Twitter/X to gain traction.
-
-Would you like me to generate a preview GIF from your code or suggest icons/images to use?
-```
