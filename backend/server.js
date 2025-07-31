@@ -5,8 +5,8 @@ import songRouter from './src/routes/songRoutes.js'
 import connectDB from './src/config/mongodb.js'
 import connectCloudinary from './src/config/cloudinary.js'
 
-//app config
 
+//app config
 const app =express()
 const port = process.env.PORT  || 4000
 connectDB()
@@ -15,6 +15,7 @@ connectCloudinary()
 //middleware
 app.use(express.json())
 app.use(cors())
+
 
 //initializing routes
 app.use("/api/songs" ,songRouter)
