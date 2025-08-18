@@ -22,4 +22,4 @@ app.use(cors())
 app.use("/api/songs" ,songRouter)
 app.get('/', (req,res)=>res.send("API Working!!"))
 
-app.listen(port,()=>console.log(`Server started on port ${port}`))
+app.listen(port,()=>console.log(`Server started on port ${port} sucessfully!!`))
