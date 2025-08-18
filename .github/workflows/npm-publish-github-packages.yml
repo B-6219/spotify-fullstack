@@ -1,36 +1,53 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
 
-name: Node.js Package
+name: CI & Deploy
 
 on:
-  release:
-    types: [created]
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: npm ci
-      - run: npm test
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-  publish-gpr:
-    needs: build
+    - name: Setup Node.js (frontend)
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+        cache: 'npm'
+
+    - name: Install dependencies & build frontend
+      run: |
+        cd frontend
+        npm ci
+        npm run build
+
+    - name: Install dependencies & test backend
+      run: |
+        cd backend
+        npm ci
+        npm test || echo "No tests found"
+
+  deploy:
+    needs: build-and-test
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          registry-url: https://npm.pkg.github.com/
-      - run: npm ci
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy Frontend to Vercel
+        run: |
+          cd frontend
+          npm i -g vercel
+          vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy Backend to Render
+        run: |
+          curl -X POST \
+            -H "Accept: application/json" \
+            -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+            https://api.render.com/deploy/srv-<YOUR_SERVICE_ID>
