@@ -15,6 +15,7 @@ const PlayerContextProvider = (props) => {
     totalTime: { second: 0, minute: 0 },
   });
 
+  
   const play = () => {
     if (audioRef.current) {
       audioRef.current.play();
@@ -22,6 +23,7 @@ const PlayerContextProvider = (props) => {
     }
   };
 
+  
   const pause = () => {
     if (audioRef.current) {
       audioRef.current.pause();
