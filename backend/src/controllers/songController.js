@@ -1,4 +1,4 @@
-import { v2 as cloudinary } from 'cloudinary'
+//import { v2 as cloudinary } from 'cloudinary'
 import songModel from ''
 const addSong = async (req,res) => {
    try {
@@ -12,7 +12,8 @@ const addSong = async (req,res) => {
 
       console.log(name,desc,album,audioUpload,imageUpload);
       
-   } catch (error) {
+   } catch (error){
+      console.log("Jello");
       
    }
 }
