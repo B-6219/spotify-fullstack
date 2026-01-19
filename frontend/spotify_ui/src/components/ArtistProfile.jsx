@@ -33,9 +33,15 @@ const ArtistProfile = () => {
                     />
 
                     <div>
-                        <p className="uppercase text-sm tracking-widest text-gray-300">
-                            <img src={assets.verified_icon} alt="" /> Verified Artist
+                        <p className="flex items-center gap-2 uppercase text-sm tracking-widest text-gray-300">
+                            <img
+                                src={assets.verified_icon}
+                                alt="verified"
+                                className="w-4 h-4"
+                            />
+                            Verified Artist
                         </p>
+
 
                         <h1 className="text-6xl font-extrabold mt-2">
                             {artist.name}
