@@ -29,19 +29,7 @@ const DisplayHome = () => {
         </div>
       </section>
 
-      {/* Popular Artists */}
-      <section className="mb-12">
-        <h1 className="my-5 font-bold text-2xl">Popular Artists</h1>
-        <div className="flex gap-4 overflow-x-auto">
-          {artistsData.map(item => (
-            <ArtistItem
-              key={item.id}
-              name={item.name}
-              image={item.image}
-            />
-          ))}
-        </div>
-      </section>
+
 
       {/* Popular Songs */}
       <section className="mb-12">
@@ -54,6 +42,20 @@ const DisplayHome = () => {
               desc={item.desc}
               image={item.image}
               id={item.id}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* Popular Artists */}
+      <section className="mb-12">
+        <h1 className="my-5 font-bold text-2xl">Popular Artists</h1>
+        <div className="flex gap-4 overflow-x-auto">
+          {artistsData.slice(1, 6).map(item => (
+            <ArtistItem
+              key={item.id}
+              name={item.name}
+              image={item.image}
             />
           ))}
         </div>
