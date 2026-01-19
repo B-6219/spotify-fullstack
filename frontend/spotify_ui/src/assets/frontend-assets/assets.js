@@ -53,6 +53,7 @@ import cee from './cee.jpeg'
 import alice from './alice.jpeg'
 import drake from './drake.jpeg'
 import billie from './billie.jpeg'
+import bruno from './bruno.jpeg'
 
 export const assets = {
     bell_icon,
@@ -133,7 +134,8 @@ export const songsData = [
         image: img1,
         file: song1,
         desc: "Put a smile on your face with these happy tunes",
-        duration: "3:00"
+        duration: "3:00",
+        artistId: 0
     },
     {
         id: 1,
@@ -141,7 +143,8 @@ export const songsData = [
         image: img2,
         file: song2,
         desc: "Put a smile on your face with these happy tunes",
-        duration: "2:20"
+        duration: "2:20",
+        artistId: 1
     },
     {
         id: 2,
@@ -149,7 +152,8 @@ export const songsData = [
         image: img3,
         file: song3,
         desc: "Put a smile on your face with these happy tunes",
-        duration: "2:32"
+        duration: "2:32",
+        artistId: 2
     },
     {
         id: 3,
@@ -157,7 +161,8 @@ export const songsData = [
         image: img4,
         file: song1,
         desc: "Put a smile on your face with these happy tunes",
-        duration: "2:50"
+        duration: "2:50",
+        artistId: 3
     },
     {
         id: 4,
@@ -165,7 +170,8 @@ export const songsData = [
         image: img5,
         file: song2,
         desc: "Put a smile on your face with these happy tunes",
-        duration: "3:10"
+        duration: "3:10",
+        artistId: 4
     },
     {
         id: 5,
@@ -173,7 +179,8 @@ export const songsData = [
         image: img14,
         file: song3,
         desc: "Put a smile on your face with these happy tunes",
-        duration: "2:45"
+        duration: "2:45",
+        artistId: 3
     },
     {
         id: 6,
@@ -181,7 +188,8 @@ export const songsData = [
         image: img7,
         file: song1,
         desc: "Put a smile on your face with these happy tunes",
-        duration: "2:18"
+        duration: "2:18",
+        artistId: 6
     },
     {
         id: 7,
@@ -189,7 +197,8 @@ export const songsData = [
         image: img12,
         file: song2,
         desc: "Put a smile on your face with these happy tunes",
-        duration: "2:35"
+        duration: "2:35",
+        artistId: 7
     }
 ]
 
@@ -197,7 +206,7 @@ export const artistsData = [
     {
         id: 0,
         name: "Bruno Mars",
-        image: 'https://www.shutterstock.com/image-photo/bruno-mars-54th-annual-grammy-awards-95363062?trackingId=9140674e-d975-4118-aede-823ad6388a6e&listId=searchResults ',
+        image: bruno,
         songs: [song1, song2, song3],
         about: "Bruno Mars is an American singer, songwriter, record producer, and performer known for his versatile musical style and energetic performances. He has won multiple Grammy Awards and is famous for hits like 'Just the Way You Are,' 'Uptown Funk,' and '24K Magic.'",
         followers: '13,352,560',

@@ -54,6 +54,7 @@ const DisplayHome = () => {
           {artistsData.slice(1, 6).map(item => (
             <ArtistItem
               key={item.id}
+              id={item.id}
               name={item.name}
               image={item.image}
             />
