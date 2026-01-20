@@ -1,5 +1,4 @@
-
-
+import React from 'React'
 import { useParams } from "react-router-dom"
 import { artistsData, assets, songsData } from "../assets/frontend-assets/assets"
 import Navbar from "../components/Navbar"
