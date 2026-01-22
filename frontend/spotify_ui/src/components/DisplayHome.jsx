@@ -51,7 +51,7 @@ const DisplayHome = () => {
       <section className="mb-12">
         <h1 className="my-5 font-bold text-2xl">Popular Artists</h1>
         <div className="flex gap-4 overflow-x-auto">
-          {artistsData.slice(1, 6).map(item => (
+          {artistsData.slice(1, 9).map(item => (
             <ArtistItem
               key={item.id}
               id={item.id}

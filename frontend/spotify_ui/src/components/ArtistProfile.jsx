@@ -103,12 +103,21 @@ const ArtistProfile = () => {
 
 
             {/* ===== ABOUT ===== */}
-            <div className="px-8 mt-12 mb-10 max-w-3xl">
+            <div className="px-8 mt-12 mb-10 max-w-max">
+                <img className="opacity[30%] " src={artist.image} alt="" />
                 <h2 className="text-xl font-bold mb-4">About</h2>
                 <p className="text-gray-300 leading-relaxed">
                     {artist.about}
                 </p>
             </div>
+
+
+            {/* <div className="px-8 mt-12 mb-10 max-w-3xl">
+                <h2 className="text-xl font-bold mb-4">About</h2>
+                <p className="text-gray-300 leading-relaxed">
+                    {artist.about}
+                </p>
+            </div> */}
         </div>
     )
 }
