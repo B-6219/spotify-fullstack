@@ -138,7 +138,8 @@ export const songsData = [
         file: song1,
         desc: "Put a smile on your face with these happy tunes",
         duration: "3:00",
-        artistId: 0
+        artistId: 0,
+        artistName: 'Wakadinali'
     },
     {
         id: 1,
@@ -147,7 +148,8 @@ export const songsData = [
         file: song2,
         desc: "Put a smile on your face with these happy tunes",
         duration: "2:20",
-        artistId: 1
+        artistId: 1,
+        artistName: 'Wakadinali'
     },
     {
         id: 2,

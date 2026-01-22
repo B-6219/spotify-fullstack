@@ -1,10 +1,14 @@
-import React from 'React'
+
 import { useParams } from "react-router-dom"
 import { artistsData, assets, songsData } from "../assets/frontend-assets/assets"
 import Navbar from "../components/Navbar"
+import { useContext } from "react"
+import { PlayerContext } from "../context/PlayerContext"
 
 
 const ArtistProfile = () => {
+    const { play } = useContext(PlayerContext)
+    const { playWithId } = useContext(PlayerContext)
     const { id } = useParams()
     const artist = artistsData.find(a => a.id === Number(id))
 
@@ -15,6 +19,8 @@ const ArtistProfile = () => {
     const artistSongs = songsData.filter(
         song => song.artistId === artist.id
     )
+
+
 
     return (
         <div className="flex-1 overflow-y-auto text-white">
@@ -56,7 +62,7 @@ const ArtistProfile = () => {
             {/* ===== ACTION BAR ===== */}
             <div className="flex items-center gap-6 px-8 mt-6">
                 <button className="flex items-center justify-center w-14 h-14 rounded-full bg-green-500 text-black hover:scale-105 transition">
-                    <img src={assets.play_icon} alt="play" className="w-6 h-6 text-black" />
+                    <img onClick={play} src={assets.play_icon} alt="play" className="w-6 h-6 text-black" />
 
                 </button>
 
@@ -69,38 +75,32 @@ const ArtistProfile = () => {
                 </span>
             </div>
 
-            {/* ===== POPULAR SONGS ===== */}
-            <div className="px-8 mt-10">
-                <h2 className="text-xl font-bold mb-4">Popular</h2>
 
-                <div className="flex flex-col">
-                    {artistSongs.map((song, index) => (
-                        <div
-                            key={song.id}
-                            className="grid grid-cols-[40px_1fr_80px] gap-4 items-center px-3 py-2 rounded-md hover:bg-white/10 group"
-                        >
-                            <span className="text-gray-400 group-hover:hidden">
-                                {index + 1}
-                            </span>
-
-                            <img src={assets.play_icon} alt="play" className="w-6 h-6" />
-
-
-                            <div className="flex items-center gap-4">
-                                <img
-                                    src={song.image}
-                                    className="w-10 h-10 object-cover rounded"
-                                />
-                                <span className="font-medium">{song.name}</span>
-                            </div>
-
-                            <span className="text-sm text-gray-400 text-right">
-                                {song.duration}
-                            </span>
-                        </div>
-                    ))}
-                </div>
+            <div className='grid grid-cols-3 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[#a7a7a7]'>
+                <p><b className='mr-4' >#</b>Title</p>
+                <p>Song</p>
+                <p className='hidden sm:block'>Date added</p>
+                <img className='m-auto w-4' src={assets.clock_icon} alt="" />
             </div>
+
+            <hr />
+            {
+                artistSongs.map((item, index) => (
+                    <div onClick={() => playWithId(item.id)} key={index} className='grid grid-cols-3 sm:grid-cols-4 gap-2 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer'>
+                        <p className='text-white'>
+                            <b className='mr-4 text-[#a7a7a7]'>{index + 1}</b>
+                            <img className='inline w-10 mr-5' src={item.image} alt="" />
+                            {item.name}
+                        </p>
+                        <p className='text-[15px]'> {item.name} </p>
+                        <p className='text-[15px] hidden sm:block'>5 days Ago</p>
+                        <p className='text-[15px] text-center'>{item.duration}</p>
+                    </div>
+                ))
+            }
+
+
+
 
             {/* ===== ABOUT ===== */}
             <div className="px-8 mt-12 mb-10 max-w-3xl">
