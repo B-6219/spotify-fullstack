@@ -66,6 +66,10 @@ const ArtistProfile = () => {
 
                 </button>
 
+                <button className="flex items-center justify-center w-8 h-8  hover:scale-105 transition">
+                    <img src={assets.shuffle_icon} alt="" />
+                </button>
+
                 <button className="border border-gray-600 px-6 py-2 rounded-full text-sm hover:border-white transition">
                     Follow
                 </button>
@@ -98,26 +102,33 @@ const ArtistProfile = () => {
                     </div>
                 ))
             }
+            {/* ===== ABOUT (SPOTIFY STYLE – FIXED) ===== */}
+            <div className="relative mt-16 mb-20 px-8">
+                {/* Background image */}
+                <div className="absolute inset-0 z-0">
+                    <img
+                        src={artist.image}
+                        alt={artist.name}
+                        className="w-full h-full object-cover opacity-20"
+                    />
+                    {/* Dark overlay like Spotify */}
+                    <div className="absolute inset-0 bg-black/60" />
+                </div>
 
-
-
-
-            {/* ===== ABOUT ===== */}
-            <div className="relative mt-12 mb-16">
-                {/* Faded artist image in the background */}
-                <img
-                    src={artist.image}
-                    alt={artist.name}
-                    className="absolute inset-0 w-full h-full object-cover opacity-10 -z-10"
-                />
-
-                <div className="px-8 max-w-4xl mx-auto text-white">
+                {/* Content */}
+                <div className="relative z-10 max-w-4xl">
                     <h2 className="text-2xl font-bold mb-4">About</h2>
-                    <p className="text-gray-300 leading-relaxed text-[15px]">
+
+                    <p className="text-gray-300 text-[15px] leading-relaxed">
                         {artist.about}
+                    </p>
+
+                    <p className="mt-4 text-sm text-gray-400">
+                        {artist.monthlyListeners} monthly listeners
                     </p>
                 </div>
             </div>
+
 
 
 
